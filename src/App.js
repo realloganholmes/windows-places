@@ -141,7 +141,7 @@ export default function App() {
                 <div className="popup-content">
                   <div className="popup-title">{loc.title}</div>
                   <div className="popup-date">{loc.date}</div>
-                  <img src={loc.image} className="popup-image" />
+                  <img src={loc.image} className="popup-image" alt={loc.title} />
                   <a
                     href={`https://www.google.com/search?tbm=isch&q=${encodeURIComponent(
                       loc.title
