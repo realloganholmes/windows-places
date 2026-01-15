@@ -1,38 +1,108 @@
-.App {
-  text-align: center;
+html,
+body,
+#root {
+  margin: 0;
+  height: 100%;
+  width: 100%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.map-container {
+  height: 100vh;
+  width: 100vw;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
+.lucky-button {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  padding: 14px 28px;
+  font-size: 1.2rem;
+  font-weight: bold;
   color: white;
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s ease;
 }
 
-.App-link {
-  color: #61dafb;
+.lucky-button:hover {
+  transform: translateX(-50%) scale(1.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* ── The fun spinning rainbow slot-machine style ── */
+.lucky-button.spinning {
+  animation:
+    spin 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards,
+    rainbow 1.5s linear infinite;
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.7);
+  pointer-events: none;
+  /* looks cooler when "disabled" */
+}
+
+@keyframes rainbow {
+  0% {
+    background: linear-gradient(45deg, #ff0000, #ff7f00, #ffff00);
   }
-  to {
-    transform: rotate(360deg);
+
+  14% {
+    background: linear-gradient(45deg, #ffff00, #00ff00, #00ffff);
   }
+
+  28% {
+    background: linear-gradient(45deg, #00ff00, #00ffff, #0000ff);
+  }
+
+  42% {
+    background: linear-gradient(45deg, #00ffff, #0000ff, #8b00ff);
+  }
+
+  57% {
+    background: linear-gradient(45deg, #0000ff, #8b00ff, #ff00ff);
+  }
+
+  71% {
+    background: linear-gradient(45deg, #8b00ff, #ff00ff, #ff0000);
+  }
+
+  85% {
+    background: linear-gradient(45deg, #ff00ff, #ff0000, #ff7f00);
+  }
+
+  100% {
+    background: linear-gradient(45deg, #ff7f00, #ffff00, #ff0000);
+  }
+}
+
+.popup-content {
+  max-width: 280px;
+}
+
+.popup-title {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.popup-date {
+  font-size: 11px;
+  color: #666;
+  margin-bottom: 6px;
+}
+
+.popup-image {
+  width: 100%;
+  border-radius: 8px;
+  margin: 6px 0;
+}
+
+.popup-link {
+  display: block;
+  font-size: 12px;
+  color: #1a73e8;
+  text-decoration: underline;
 }
