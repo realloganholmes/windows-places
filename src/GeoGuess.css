@@ -3,12 +3,12 @@ html,
 body {
   margin: 0;
   padding: 0;
-  height: 100vh;
+  height: 100dvh;
   background: #0e1116;
 }
 
 .geoguess-container {
-  height: 90vh;
+  height: 90dvh;
   width: 100vw;
   display: flex;
   flex-direction: column;
