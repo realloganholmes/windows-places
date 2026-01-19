@@ -87,11 +87,18 @@ export default function GeoGuess() {
 
   const submitGuess = () => setRevealed(true);
 
+  function normalizeLon(lon) {
+    return ((lon + 180) % 360 + 360) % 360 - 180;
+  }
+
   const trySetGuess = (g) => {
     if (!revealed) {
-      setGuess(g)
+      setGuess({
+        lat: g.lat,
+        lng: normalizeLon(g.lng),
+      });
     }
-  }
+  };
 
   const next = () => {
     const nextIndex = (index + 1) % order.length;
@@ -110,7 +117,12 @@ export default function GeoGuess() {
 
   const distance =
     guess && revealed
-      ? haversine(guess.lat, guess.lng, current.lat, current.lon).toFixed(1)
+      ? haversine(
+        guess.lat,
+        guess.lng,
+        current.lat,
+        normalizeLon(current.lon)
+      ).toFixed(1)
       : null;
 
   return (
@@ -132,15 +144,18 @@ export default function GeoGuess() {
           : ''}
       </div>
 
-      <MapContainer center={[20, 0]} zoom={2} className="geoguess-map">
+      <MapContainer removeOutsideVisibleBounds={false} worldCopyJump={true} center={[20, 0]} zoom={2} className="geoguess-map">
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
         <GuessClick onGuess={trySetGuess} />
 
-        {guess && <Marker position={guess} />}
-        {revealed && <Marker position={actual} />}
+        {guess && <Marker options={{ wrapLatLng: true }} position={guess} />}
+        {revealed && <Marker options={{ wrapLatLng: true }} position={actual} />}
 
         {guess && revealed && (
-          <Polyline positions={[guess, actual]} />
+          <Polyline
+            positions={[guess, actual]}
+            pathOptions={{ interactive: false }}
+          />
         )}
       </MapContainer>
 
