@@ -126,7 +126,6 @@ export default function App() {
           disableClusteringAtZoom={8}
           showCoverageOnHover={false}
           spiderfyOnMaxZoom
-          removeOutsideVisibleBounds={false}
         >
           {locations.map((loc, i) => (
             <Marker
