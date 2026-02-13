@@ -115,8 +115,8 @@ export default function App() {
 
       <MapContainer ref={mapRef} renderer={L.canvas()} center={[20, 0]} zoom={2} className="map-container" worldCopyJump={true}>
         <TileLayer
-          attribution="&copy; OpenStreetMap contributors"
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          attribution='&copy; OpenStreetMap contributors &copy; CARTO'
+          url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png"
         />
 
         {flyTo && <FlyTo position={flyTo} />}
