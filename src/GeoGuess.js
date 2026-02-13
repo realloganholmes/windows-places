@@ -147,7 +147,9 @@ export default function GeoGuess() {
       <MapContainer removeOutsideVisibleBounds={false} worldCopyJump={true} center={[20, 0]} zoom={2} className="geoguess-map">
         <TileLayer
           attribution="&copy; OpenStreetMap contributors &copy; Wikimedia Maps"
-          url="https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png"
+          url="https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png?lang=en"
+          updateWhenIdle={true}
+          updateWhenZooming={false}
         />
         <GuessClick onGuess={trySetGuess} />
 

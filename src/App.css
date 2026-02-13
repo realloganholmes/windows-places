@@ -63,11 +63,55 @@
   transform: translateX(20px);
 }
 
+.linkedin-badge {
+  position: fixed;
+  left: 12px;
+  bottom: 12px;
+  z-index: 1000;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 15px;
+  border-radius: 999px;
+  background: rgba(15, 18, 25, 0.85);
+  color: #e5e7eb;
+  font-size: 1.2rem;
+  line-height: 1;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(8px);
+  text-decoration: none;
+  user-select: none;
+}
+
+.linkedin-badge:hover {
+  background: rgba(15, 18, 25, 0.95);
+}
+
+.linkedin-badge svg {
+  width: 21px;
+  height: 21px;
+  fill: #0a66c2;
+  flex: 0 0 auto;
+}
+
 /* Mobile */
 @media (max-width: 600px) {
   .quiz-toggle {
     top: auto;
     bottom: 16px;
     right: 16px;
+  }
+
+  .linkedin-badge {
+    left: 16px;
+    bottom: 16px;
+    padding: 10px 14px;
+    font-size: 0.85rem;
+    height: 22px;
+  }
+
+  .linkedin-badge svg {
+    width: 14px;
+    height: 14px;
   }
 }
