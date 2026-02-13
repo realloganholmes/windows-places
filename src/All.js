@@ -115,8 +115,8 @@ export default function App() {
 
       <MapContainer ref={mapRef} renderer={L.canvas()} center={[20, 0]} zoom={2} className="map-container" worldCopyJump={true}>
         <TileLayer
-          attribution="&copy; OpenStreetMap contributors"
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          attribution="&copy; OpenStreetMap contributors &copy; Wikimedia Maps"
+          url="https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png"
         />
 
         {flyTo && <FlyTo position={flyTo} />}
