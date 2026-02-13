@@ -145,12 +145,7 @@ export default function GeoGuess() {
       </div>
 
       <MapContainer removeOutsideVisibleBounds={false} worldCopyJump={true} center={[20, 0]} zoom={2} className="geoguess-map">
-        <TileLayer
-          attribution="&copy; OpenStreetMap contributors &copy; Wikimedia Maps"
-          url="https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png?lang=en"
-          updateWhenIdle={true}
-          updateWhenZooming={false}
-        />
+        <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
         <GuessClick onGuess={trySetGuess} />
 
         {guess && <Marker options={{ wrapLatLng: true }} position={guess} />}
